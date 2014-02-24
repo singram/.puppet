@@ -1,0 +1,72 @@
+# Configuration dump produced by 'cssh -u'
+auto_quit=yes
+command=
+comms=ssh
+console_args=
+console_position=
+extra_cluster_file=
+history_height=10
+history_width=40
+key_addhost=Control-Shift-plus
+key_clientname=Alt-n
+key_history=Alt-h
+key_paste=Control-v
+key_quit=Control-q
+key_retilehosts=Alt-r
+max_addhost_menu_cluster_items=6
+max_host_menu_items=30
+menu_host_autotearoff=0
+menu_send_autotearoff=0
+method=ssh
+mouse_paste=Button-2
+rsh_args=
+screen_reserve_bottom=60
+screen_reserve_left=0
+screen_reserve_right=0
+screen_reserve_top=0
+send_menu_xml_file=/home/singram/.csshrc_send_menu
+show_history=0
+ssh=/usr/bin/ssh
+ssh_args=-x -o ConnectTimeout=10
+telnet_args=
+terminal=/usr/bin/xterm
+terminal_allow_send_events=-xrm '*.VT100.allowSendEvents:true'
+terminal_args=
+terminal_bg_style=dark
+terminal_colorize=1
+terminal_decoration_height=10
+terminal_decoration_width=8
+terminal_font=6x13
+terminal_reserve_bottom=0
+terminal_reserve_left=5
+terminal_reserve_right=0
+terminal_reserve_top=5
+terminal_size=80x24
+terminal_title_opt=-T
+title=CSSH
+unmap_on_redraw=no
+use_all_a_records=0
+use_hotkeys=yes
+window_tiling=yes
+window_tiling_direction=right
+
+clusters        = prod prod_api prod_pi prod_pi_storage prod_rabbit prod_mongo prod_mongo_conf prod_puppet
+
+prod_api        = x47prd11 x47prd14 x47prd21 x47prd22 x47prd23
+prod_pi         = x47prd24 x47prd36
+prod_pi_storage = x47prd37 x47prd38
+prod_rabbit     = x47prd13 x47prd18
+prod_mongo      = x47prd15 x47prd16 x47prd17 x47prd25 x47prd26 x47prd27 x47prd28 x47prd29 x47prd30
+prod_mongo_conf = x47prd31 x47prd32 x47prd33
+prod_puppet     = x47prd10
+prod            = prod_api prod_pi prod_pi_storage prod_rabbit prod_mongo prod_mongo_conf prod_puppet
+
+
+dev_api        = x61dev30 x61dev31 x61dev70 x61dev71
+dev_pi         = x61dev32 x61dev33
+dev_pi_storage = x61dev60 x61dev61
+dev_rabbit     = x61dev50 x61dev51
+dev_mongo      = x61dev00 x61dev01 x61dev02 x61dev03 x61dev04 x61dev05
+dev_mongo_conf = x61dev40 x61dev41 x61dev42
+dev_puppet     = x61dev80
+dev            = dev_api dev_pi dev_pi_storage dev_rabbit dev_mongo dev_mongo_conf dev_puppet
