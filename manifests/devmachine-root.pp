@@ -1,5 +1,14 @@
 $mainUser = "singram"
 
+file { "/home/$id":
+    ensure   => "directory",
+}
+
+file { "/home/$id/packages":
+    ensure   => "directory",
+    require  => File["/home/$id"]
+}
+
 import 'system/sources.pp'
 
 import 'system/hosts.pp'

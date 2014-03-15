@@ -18,5 +18,5 @@ exec { "emacs_installation":
     cwd     => "/tmp",
     command => "wget ftp://ftp.gnu.org/gnu/emacs/emacs-24.3.tar.gz && tar xvfz emacs-24.3.tar.gz && cd emacs-24.3 && ./configure && make && make install",
     require => Package[$emacsPackages],
-    unless  => "which emacs"
+    creates  =>  "/usr/local/bin/emacs",
 }
