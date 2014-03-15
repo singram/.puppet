@@ -1,5 +1,4 @@
 include apt
-include wget
 
 apt::source { "puppetlabs_source":
             location        => "http://apt.puppetlabs.com/",
@@ -28,9 +27,8 @@ apt::key { "rabbitmq_key":
     before => Apt::Source['rabbitmq_debian_source']
 }
 
-apt::key { "mongodb_key":
-    key => '7F0CEB10',
-    ensure => present,
-    key_source => 'hkp://keyserver.ubuntu.com:80',
-    before => Apt::Source['mongodb_source']
+exec { "mongodb_key":
+    command => "/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10",
+    unless => "/usr/bin/apt-key list| /bin/grep -c 10gen",
+    before => Apt::Source['mongodb_source'],
 }
