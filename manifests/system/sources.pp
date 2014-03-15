@@ -30,6 +30,6 @@ apt::key { "rabbitmq_key":
 
 exec { "mongodb_key":
     command => "/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10",
-    unless => "/usr/bin/apt-key list| /bin/grep -c 10gen";
-    before => Apt::Source['mongodb_source']
+    unless => "/usr/bin/apt-key list| /bin/grep -c 10gen",
+    before => Apt::Source['mongodb_source'],
 }
