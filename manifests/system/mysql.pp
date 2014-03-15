@@ -1,5 +1,10 @@
+file { "/home/$id":
+  ensure => "directory",
+}
+
 file { "/home/$id/packages":
   ensure => "directory",
+  require => File["/home/$id"]
 }
 
 wget::fetch { "mysql_package_download":
