@@ -16,6 +16,7 @@ package { "rabbitmq_server_install":
 
 exec { "rabbitmqadmin_installation":
     path    => "/usr/bin/:/bin/:/usr/sbin/",
+    environment => ["HOME=/root"],
     command => "wget http://hg.rabbitmq.com/rabbitmq-management/raw-file/rabbitmq_v3_1_1/bin/rabbitmqadmin -P /usr/bin/ && chmod +x /usr/bin/rabbitmqadmin",
     creates => "/usr/bin/rabbitmqadmin",
     require => Package["rabbitmq_server_install"]
