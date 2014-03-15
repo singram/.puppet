@@ -1,7 +1,8 @@
 package { "rabbitmq_server":
     ensure => "3.1.1-1",
 #    source => "http://ftp.br.debian.org/debian/pool/main/r/rabbitmq-server/rabbitmq-server_3.1.1-1_all.deb"
-    source => "http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.1/rabbitmq-server_3.1.1-1_all.deb"
+    source => "http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.1/rabbitmq-server_3.1.1-1_all.deb",
+    before => Apt::Key['rabbitmq_key']
 }
 
 exec { "rabbitmqadmin_installation":
