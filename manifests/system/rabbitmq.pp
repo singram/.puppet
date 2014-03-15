@@ -1,17 +1,17 @@
 exec { "rabbitmq_server_package_download":
     path     => "/usr/bin/:/bin/",
-    cwd      => "/home/$id/packages/",
+    cwd      => "/root/packages/",
 #    source => "http://ftp.br.debian.org/debian/pool/main/r/rabbitmq-server/rabbitmq-server_3.1.1-1_all.deb"
     command  => "wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.1/rabbitmq-server_3.1.1-1_all.deb",
-    require  => File["/home/$id/packages"],
+    require  => File["/root/packages"],
     before   => Package["rabbitmq_server_install"],
-    creates  => "/home/$id/packages/rabbitmq-server_3.1.1-1_all.deb",
+    creates  => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
 }
 
 package { "rabbitmq_server_install":
     provider => dpkg,
     ensure   => installed,
-    source   => "/home/$id/packages/rabbitmq-server_3.1.1-1_all.deb",
+    source   => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
 }
 
 exec { "rabbitmqadmin_installation":
