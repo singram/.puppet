@@ -5,7 +5,7 @@ exec { "rabbitmq_server_package_download":
     command  => "wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.1/rabbitmq-server_3.1.1-1_all.deb",
     require  => File["/home/$id/packages"],
     before   => Package["rabbitmq_server_install"],
-    creates  => "/home/$id/packages/mysql-5.6.14-debian6.0-x86_64.deb",
+    creates  => "/home/$id/packages/rabbitmq-server_3.1.1-1_all.deb",
 }
 
 package { "rabbitmq_server_install":
