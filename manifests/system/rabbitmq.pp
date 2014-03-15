@@ -23,7 +23,7 @@ exec { "rabbitmqadmin_installation":
 
 exec { "rabbitmq_plugin_installation":
     path    => "/usr/bin/:/bin/:/usr/sbin/",
-    command => "rabbitmq-plugins enable rabbitmq_management rabbitmq_shovel rabbitmq_shovel_management && /etc/init.d/rabbitmq-server restart",
+    command => "rabbitmq-plugins enable rabbitmq_management rabbitmq_shovel rabbitmq_shovel_management",
     require => Package["rabbitmq_server_install"]
 }
 
@@ -32,4 +32,11 @@ exec { "rabbitmqadmin_bash_completion":
     command => "sh -c 'rabbitmqadmin --bash-completion > /etc/bash_completion.d/rabbitmqadmin'",
     creates => "/etc/bash_completion.d/rabbitmqadmin",
     require => Exec["rabbitmqadmin_installation"]
+}
+
+service { "rabbitmq_server_restart" :
+  restart => '/etc/init.d/rabbitmq-server restart',
+  name => 'rabbitmq-server',
+  ensure => running,
+  require => Exec['rabbitmqadmin_bash_completion'],
 }
