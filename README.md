@@ -8,5 +8,5 @@ sudo apt-get update
 sudo apt-get install puppet git
 git clone https://github.com/singram/.puppet.git ~/.puppet
 sudo puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine-root.pp
-puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine.pp
+     puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine.pp
 ```
