@@ -10,6 +10,7 @@ $desiredPackages = [
   'dstat',
   'eclipse',
   'eclipse-jdt',
+  'erlang-nox',
   'expect',
 #  'gedit',
 #  'gedit-plugins',
