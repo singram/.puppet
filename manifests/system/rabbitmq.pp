@@ -19,14 +19,14 @@ exec { "rabbitmqadmin_installation":
     path    => "/usr/bin/:/bin/:/usr/sbin/",
     command => "wget http://hg.rabbitmq.com/rabbitmq-management/raw-file/rabbitmq_v3_1_1/bin/rabbitmqadmin -P /usr/bin/ && chmod +x /usr/bin/rabbitmqadmin",
     creates => "/usr/bin/rabbitmqadmin",
-    require => Package["rabbitmq_server_install"]
+    require => Package["rabbitmq_server"]
 }
 
 exec { "rabbitmq_plugin_installation":
     path    => "/usr/bin/:/bin/:/usr/sbin/",
     environment => ["HOME=/root"],
     command => "rabbitmq-plugins enable rabbitmq_management rabbitmq_shovel rabbitmq_shovel_management",
-    require => Package["rabbitmq_server_install"],
+    require => Package["rabbitmq_server"],
     unless  => "/usr/sbin/rabbitmq-plugins list -E -m | grep rabbitmq_management",
 }
 
