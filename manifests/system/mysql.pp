@@ -28,8 +28,8 @@ user { "mysql":
 
 file {'/tmp/mysql_installation.sh':
   ensure => file,
-  content => 'manifests/system/mysql_installation.sh'
-  mode => 777
+  content => 'manifests/system/mysql_installation.sh',
+  mode => 777,
 }
 
 exec {'mysql_install_setup':
