@@ -10,9 +10,9 @@ exec { "rabbitmq_server_package_download":
 
 package { "rabbitmq_server_install":
     provider => dpkg,
-    ensure   => installed,
+    ensure   => present,
     source   => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
-    unless  => "/usr/bin/dpkg -s rabbitmq-server",
+#    unless  => "/usr/bin/dpkg -s rabbitmq-server",
 }
 
 exec { "rabbitmqadmin_installation":
@@ -26,7 +26,7 @@ exec { "rabbitmq_plugin_installation":
     path    => "/usr/bin/:/bin/:/usr/sbin/",
     environment => ["HOME=/root"],
     command => "rabbitmq-plugins enable rabbitmq_management rabbitmq_shovel rabbitmq_shovel_management",
-    require => Package["rabbitmq_server_install"]
+    require => Package["rabbitmq_server_install"],
     unless  => "/usr/sbin/rabbitmq-plugins list -E -m | grep rabbitmq_management",
 }
 
