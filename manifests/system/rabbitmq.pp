@@ -8,7 +8,7 @@ exec { "rabbitmq_server_package_download":
     creates  => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
 }
 
-package { "rabbitmq_server_install":
+package { "rabbitmq_server":
     provider => dpkg,
     ensure   => present,
     source   => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
