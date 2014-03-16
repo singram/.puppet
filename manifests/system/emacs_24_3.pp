@@ -1,11 +1,11 @@
 $emacsPackages = [
   'libjpeg-dev',
-  'libpng-dev',
+  'libpng12-dev',
   'libgif-dev',
-  'libtiff-dev',
+  'libtiff5-dev',
   'libxpm-dev',
   'texinfo',
-  'libncurses-dev'
+  'libncurses5-dev'
 ]
 
 package { $emacsPackages:

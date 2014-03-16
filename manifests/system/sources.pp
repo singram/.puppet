@@ -1,5 +1,4 @@
 include apt
-include wget
 
 apt::source { "puppetlabs_source":
             location        => "http://apt.puppetlabs.com/",
