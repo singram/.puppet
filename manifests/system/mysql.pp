@@ -27,15 +27,20 @@ user { "mysql":
 }
 
 file {'/tmp/mysql_installation.sh':
-  ensure => file,
+  ensure => present,
   content => template('mysql/mysql_installation.sh.erb'),
   mode => 777,
+}
+
+file {'/etc/my.cnf':
+  ensure => present,
+  content => template('mysql/my.cnf.erb'),
 }
 
 exec {'mysql_install_setup':
   path    => "/usr/bin/:/bin/:/usr/sbin/",
   command => '/tmp/mysql_installation.sh',
-  require => [File['/tmp/mysql_installation.sh'], User['mysql'], Group['mysql'], Package['mysql']]
+  require => [File['/tmp/mysql_installation.sh'], File['/etc/my.cnf'], User['mysql'], Group['mysql'], Package['mysql']]
 }
 
 service { "mysql" :
