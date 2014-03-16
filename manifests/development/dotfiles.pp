@@ -2,7 +2,7 @@ class dotfiles {
 
   exec { 'clone_dotfiles_repo':
       path    => '/usr/bin/:/bin/',
-      command => 'git clone https://github.com/singram/dotfiles.git /home/$id/projects/dotfiles',
+      command => "git clone https://github.com/singram/dotfiles.git /home/$id/projects/dotfiles",
       creates => "/home/$id/dotfiles",
   }
 
