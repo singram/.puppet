@@ -28,7 +28,7 @@ user { "mysql":
 
 file {'/tmp/mysql_installation.sh':
   ensure => file,
-  content => 'manifests/system/mysql_installation.sh',
+  content => template('manifests/system/mysql_installation.sh'),
   mode => 777,
 }
 
