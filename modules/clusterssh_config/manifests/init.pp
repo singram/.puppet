@@ -6,4 +6,5 @@ class clusterssh_config {
     mode => 644,
     source => "puppet:///modules/clusterssh_config/clusterssh_config",
   }
+
 }
