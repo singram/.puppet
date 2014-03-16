@@ -40,7 +40,8 @@ file {'/etc/my.cnf':
 exec {'mysql_install_setup':
   path    => "/usr/bin/:/bin/:/usr/sbin/",
   command => '/tmp/mysql_installation.sh',
-  require => [File['/tmp/mysql_installation.sh'], File['/etc/my.cnf'], User['mysql'], Group['mysql'], Package['mysql']]
+  require => [File['/tmp/mysql_installation.sh'], File['/etc/my.cnf'], User['mysql'], Group['mysql'], Package['mysql']],
+  unless  => "mysql --version | grep 5.6.14"
 }
 
 service { "mysql" :
