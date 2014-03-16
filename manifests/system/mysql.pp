@@ -27,10 +27,13 @@ user { "mysql":
 }
 
 file {'/tmp/mysql_installation.sh':
-  source => 'puppet:///manifests/system/mysql_installation.sh'
+  ensure => file,
+  content => 'manifests/system/mysql_installation.sh'
+  mode => 777
 }
 
 exec {'mysql_install_setup':
+  path    => "/usr/bin/:/bin/:/usr/sbin/",
   command => '/tmp/mysql_installation.sh',
   require => [File['/tmp/mysql_installation.sh'], User['mysql'], Group['mysql'], Package['mysql']]
 }
