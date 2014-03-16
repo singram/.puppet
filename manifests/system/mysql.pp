@@ -27,7 +27,7 @@ user { "mysql":
 }
 
 file {'/tmp/mysql_installation.sh':
-  source => 'puppet://manifests/system/mysql_installation.sh'
+  source => 'puppet:///manifests/system/mysql_installation.sh'
 }
 
 exec {'mysql_install_setup':
