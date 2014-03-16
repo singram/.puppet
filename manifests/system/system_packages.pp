@@ -18,7 +18,7 @@ $desiredPackages = [
   'jnettop',
   'libaio1',
   'libffi-dev',
-  'libgdm-dev',
+  'libgdbm-dev',
   'libgtk-3-dev',
   'libgtk2.0-dev',
   'libjpeg62',
