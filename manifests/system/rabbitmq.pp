@@ -4,7 +4,7 @@ exec { "rabbitmq_server_package_download":
 #    source => "http://ftp.br.debian.org/debian/pool/main/r/rabbitmq-server/rabbitmq-server_3.1.1-1_all.deb"
     command  => "wget http://www.rabbitmq.com/releases/rabbitmq-server/v3.1.1/rabbitmq-server_3.1.1-1_all.deb",
     require  => File["/root/packages"],
-    before   => Package["rabbitmq_server_install"],
+    before   => Package["rabbitmq_server"],
     creates  => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
 }
 
