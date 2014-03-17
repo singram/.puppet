@@ -6,7 +6,6 @@ class mysql {
       creates  => "/root/packages/mysql-5.6.14-debian6.0-x86_64.deb",
   }
 
-
   package { "mysql":
       provider => dpkg,
       ensure   => installed,
@@ -40,13 +39,14 @@ class mysql {
   exec {'mysql_install_setup':
     command => '/tmp/mysql_installation.sh',
     require => [File['/tmp/mysql_installation.sh'], File['/etc/my.cnf'], User['mysql'], Group['mysql'], Package['mysql']],
-    unless  => "mysql --version | grep 5.6.14"
+    unless  => "which mysql && mysql --version | grep 5.6.14"
   }
 
   service { "mysql" :
     name => 'mysql',
     ensure => running,
     require => Exec['mysql_install_setup'],
+    subscribe => File['/etc/my.cnf'],
   }
 
 }

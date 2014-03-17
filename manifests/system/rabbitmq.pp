@@ -40,5 +40,7 @@ class rabbitmq {
     name => 'rabbitmq-server',
     ensure => running,
     require => Exec['rabbitmqadmin_bash_completion'],
+    subscribe => File['/etc/rabbitmq/rabbitmq.config'],
   }
+
 }
