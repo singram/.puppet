@@ -10,6 +10,7 @@ Edit -> Profiles -> (select profile) Edit -> Title & Command -> Run command as l
 ```
 sudo apt-get update
 sudo apt-get install puppet git
+sudo gem install rake
 git clone https://github.com/singram/.puppet.git ~/.puppet
 sudo puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine-root.pp
      puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine.pp

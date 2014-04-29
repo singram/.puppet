@@ -4,7 +4,7 @@ class clusterssh_config {
     owner => "$id",
     group => "$id",
     mode => 644,
-    source => "puppet:///modules/clusterssh_config/clusterssh_config",
+    source => "puppet:///modules/clusterssh_config/templates/clusterssh_config",
   }
 
 }
