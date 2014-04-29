@@ -13,7 +13,7 @@ class rabbitmq {
       provider => dpkg,
       ensure   => present,
       source   => "/root/packages/rabbitmq-server_3.1.1-1_all.deb",
-  #    unless  => "/usr/bin/dpkg -s rabbitmq-server",
+      #    unless  => "/usr/bin/dpkg -s rabbitmq-server",
   }
 
   exec { "rabbitmqadmin_installation":
@@ -35,12 +35,11 @@ class rabbitmq {
       require => Exec["rabbitmqadmin_installation"]
   }
 
-  service { "rabbitmq-server_restart" :
+  service { "rabbitmq" :
     restart => '/etc/init.d/rabbitmq-server restart',
     name => 'rabbitmq-server',
     ensure => running,
     require => Exec['rabbitmqadmin_bash_completion'],
-    subscribe => File['/etc/rabbitmq/rabbitmq.config'],
   }
 
 }
