@@ -1,5 +1,5 @@
 class mongo {
   package { "mongodb-10gen":
-    ensure => '2.4.5',
+    ensure => '2.6.3',
   }
 }
