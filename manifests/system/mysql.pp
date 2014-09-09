@@ -42,10 +42,16 @@ class mysql {
     unless  => "which mysql && mysql --version | grep 5.6.14"
   }
 
+  exec {'post_mysql_install_setup':
+    command => '/opt/mysql/server-5.6/scripts/mysql_install_db --user=mysql --datadir=/var/lib/mysql',
+    require => Exec['mysql_install_setup'],
+    unless  => "[ -f /var/lib/mysql/mysql/user.MYI ]" 
+  } 
+
   service { "mysql" :
     name => 'mysql',
     ensure => running,
-    require => Exec['mysql_install_setup'],
+    require => Exec['post_mysql_install_setup'],
     subscribe => File['/etc/my.cnf'],
   }
 
