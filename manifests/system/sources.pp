@@ -4,9 +4,15 @@ class sources {
 
   apt::source { "puppetlabs_source":
               location        => "http://apt.puppetlabs.com/",
-              release         => "precise",
+              release         => "trusty",
               repos           => "main dependencies",
               include_src     => false
+  }
+
+  apt::key { 'puppetlabs':
+    ensure => present,
+    key_source => 'http://apt.puppetlabs.com/pubkey.gpg', 
+    key     => '4BD6EC30',
   }
 
   apt::source { "rabbitmq_debian_source":
