@@ -26,7 +26,7 @@ class sources {
   exec { 'mongodb_key':
          command => '/usr/bin/apt-key adv --keyserver keyserver.ubuntu.com --recv 7F0CEB10',
          unless  => '/usr/bin/apt-key list| /bin/grep -c 10gen',
-         before  => Apt::Source['mongodb_source'],
+         before  => [ Apt::Source['mongodb_source'], Apt::Source['mongodb_enterprise_source'] ]
   }
 
   apt::source { 'puppetlabs_source':
@@ -57,4 +57,10 @@ class sources {
                 include_src     => false
   }
 
+  apt::source { 'mongodb_enterprise_source':
+                location        => 'http://repo.mongodb.com/apt/ubuntu',
+                release         => 'precise/mongodb-enterprise/2.6',
+                repos           => 'multiverse',
+                include_src     => false
+  }
 }

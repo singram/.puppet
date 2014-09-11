@@ -19,12 +19,12 @@ stage {
 }
 
 class {
-  sources:         stage => 'sources';
-  hosts:           stage => 'hosts';
-  system_packages: stage => 'system_packages';
-  emacs:           stage => 'applications';
-  mongo:           stage => 'applications';
-  rabbitmq:        stage => 'applications';
-  redis26:         stage => 'applications';
-  mysql:           stage => 'applications';
+  sources:            stage => 'sources';
+  hosts:              stage => 'hosts';
+  system_packages:    stage => 'system_packages';
+  emacs:              stage => 'applications';
+  mongo::opensource:  stage => 'applications';
+  rabbitmq:           stage => 'applications';
+  redis26:            stage => 'applications';
+  mysql:              stage => 'applications';
 }
