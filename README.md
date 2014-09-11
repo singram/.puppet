@@ -14,6 +14,7 @@ sudo gem install rake
 git clone https://github.com/singram/.puppet.git ~/.puppet
 sudo puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine-root.pp
      puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/devmachine.pp
+     puppet apply --modulepath=$HOME/.puppet/modules ~/.puppet/manifests/projects.pp
 cd ~/dotfiles
 rake install
 ```

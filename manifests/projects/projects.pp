@@ -17,12 +17,13 @@ class project_repos {
 
   }
 
-  $repos = ['euler',
+  $repos = ['boggle',
+            'euler',
             'presentations',
-            'rougelike_ruby',
+            'roguelike_ruby',
             'sentiment',
             'solution_searching',
-            'cucumber_profiler',
+            'cucumber_characteristics',
             'cucumber_rake_runner',
             'deployment_tracker']
 
