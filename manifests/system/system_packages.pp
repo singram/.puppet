@@ -64,6 +64,12 @@ class system_packages {
   package { $desiredPackages:
     ensure => installed
   }
+ 
+  file { '/usr/lib/jvm/java-6-openjdk':
+    ensure => 'link',
+    target => '/usr/lib/jvm/java-6-openjdk-amd64',
+    require => Package[ $desiredPackages ],
+  }
 
   $undesiredPackages = ['avahi-daemon']
 
