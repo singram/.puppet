@@ -17,15 +17,20 @@ class project_repos {
 
   }
 
-  $repos = ['boggle',
+  $repos = [
+            'boggle',
+            'cucumber_characteristics',
+            'cucumber_rake_runner',
+            'deployment_tracker',
             'euler',
+            'mongo-docker-compose',
+            'ner_service_example',
             'presentations',
             'roguelike_ruby',
             'sentiment',
             'solution_searching',
-            'cucumber_characteristics',
-            'cucumber_rake_runner',
-            'deployment_tracker']
+            'twitteranalyser'
+            ]
 
   personal_repo { $repos: }
 
