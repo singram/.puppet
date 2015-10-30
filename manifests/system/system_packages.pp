@@ -40,6 +40,7 @@ class system_packages {
     'ntp',
     'openjdk-6-jdk',
     'python',
+    'python-pip',
     'rar',
     'screen',
     'sqlite3',
@@ -59,12 +60,14 @@ class system_packages {
   #  'gedit-plugins',
   #  'msttcorefonts',
   #  'ubuntu-restricted-extras',
+  #  'golang',
+  #  'jmeter',
   ]
 
   package { $desiredPackages:
     ensure => installed
   }
- 
+
   file { '/usr/lib/jvm/java-6-openjdk':
     ensure => 'link',
     target => '/usr/lib/jvm/java-6-openjdk-amd64',

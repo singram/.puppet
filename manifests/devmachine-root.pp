@@ -6,6 +6,7 @@ import 'system/sources.pp'
 import 'system/hosts.pp'
 import 'system/system_packages.pp'
 import 'system/emacs_24_4.pp'
+import 'system/aws-cli.pp'
 
 stage {
   'sources':         before => Stage['hosts'];
@@ -19,6 +20,7 @@ class {
   hosts:              stage => 'hosts';
   system_packages:    stage => 'system_packages';
   emacs244:           stage => 'applications';
+  awscli:             stage => 'applications';
 #  mongo::opensource:  stage => 'applications';
 #  rabbitmq:           stage => 'applications';
 #  redis26:            stage => 'applications';
