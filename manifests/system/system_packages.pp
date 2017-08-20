@@ -6,13 +6,14 @@ class system_packages {
   $desiredPackages = [
     'ant',
     'bison',
+    'build-essential',
+    'checkinstall',
     'clusterssh',
     'curl',
     'dconf-tools',
     'dstat',
     'eclipse',
     'eclipse-jdt',
-    'erlang-nox',
     'expect',
     'git',
     'git-core',
@@ -38,15 +39,12 @@ class system_packages {
     'ncurses-term',
     'nmap',
     'ntp',
-    'openjdk-6-jdk',
     'python',
     'python-pip',
     'rar',
     'screen',
     'sqlite3',
     'sshfs',
-    'subversion',
-    'subversion-tools',
     'sysstat',
     'terminator',
     'tmux',
@@ -66,12 +64,6 @@ class system_packages {
 
   package { $desiredPackages:
     ensure => installed
-  }
-
-  file { '/usr/lib/jvm/java-6-openjdk':
-    ensure => 'link',
-    target => '/usr/lib/jvm/java-6-openjdk-amd64',
-    require => Package[ $desiredPackages ],
   }
 
   $undesiredPackages = ['avahi-daemon']

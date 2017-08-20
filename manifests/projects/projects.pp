@@ -19,6 +19,7 @@ class project_repos {
 
   $repos = [
             'boggle',
+            'crisp-ghost-theme',
             'cucumber_characteristics',
             'cucumber_rake_runner',
             'deployment_tracker',
@@ -29,6 +30,8 @@ class project_repos {
             'roguelike_ruby',
             'sentiment',
             'solution_searching',
+            'spring-boot-base-app',
+            'spring-boot-camel-example',
             'twitteranalyser'
             ]
 

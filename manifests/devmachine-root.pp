@@ -5,7 +5,7 @@ Exec { path => [ "/bin/", "/sbin/" , "/usr/bin/", "/usr/sbin/" ] }
 import 'system/sources.pp'
 import 'system/hosts.pp'
 import 'system/system_packages.pp'
-import 'system/emacs_24_4.pp'
+import 'system/emacs_25_1.pp'
 import 'system/aws-cli.pp'
 
 stage {
@@ -19,10 +19,6 @@ class {
   sources:            stage => 'sources';
   hosts:              stage => 'hosts';
   system_packages:    stage => 'system_packages';
-  emacs244:           stage => 'applications';
+  emacs251:           stage => 'applications';
   awscli:             stage => 'applications';
-#  mongo::opensource:  stage => 'applications';
-#  rabbitmq:           stage => 'applications';
-#  redis26:            stage => 'applications';
-#  mysql:              stage => 'applications';
 }
